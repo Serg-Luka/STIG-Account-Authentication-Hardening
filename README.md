@@ -69,6 +69,11 @@ It’s a security rule that says: “Remote Desktop Services must always prompt 
 **Why remediate?**
 If Remote Desktop doesn’t always prompt for a password, attackers could connect using cached or saved credentials, increasing the risk of unauthorised access.
 
+**Real-world example:**
+In some ransomware campaigns, attackers gained access to systems through Remote Desktop by exploiting saved credentials left behind on shared or previously compromised machines. By disabling automatic logon and enforcing a password prompt, organisations can add a critical layer of protection against such lateral movement.
+
+---
+
 <a id="31-remediating-wn10-cc-000280"></a>
 ### 3.1 Remediating WN10-CC-000280
 
@@ -77,6 +82,8 @@ If Remote Desktop doesn’t always prompt for a password, attackers could connec
 I opened the Group Policy Editor and navigated to the Remote Desktop Services security settings. Then, I enabled the “Always prompt for password upon connection” policy to ensure every Remote Desktop connection requires a password. Finally, I applied the changes and ran the PowerShell command `gpupdate /force` to immediately update the group policy and enforce the new setting.
 
 <img src="https://i.imgur.com/bEKewoB.png">
+
+---
 
 <a id="32-confirming-wn10-cc-000280-remediation"></a>
 ### 3.2	Confirming WN10-CC-000280 Remediation
@@ -101,6 +108,8 @@ If passwords never expire, they’re more likely to be reused, discovered, or cr
 **Real-world example:**
 Password reuse and non-expiring credentials have played a role in many breaches. For example, during the 2012 LinkedIn breach, millions of hashed passwords were leaked. Because many users reused those credentials for years without changing them, attackers were still able to access other accounts long after the initial breach.
 
+---
+
 <a id="41-remediating-wn10-00-000090"></a>
 ### 4.1 Remediating WN10-00-000090
 
@@ -111,6 +120,8 @@ Password reuse and non-expiring credentials have played a role in many breaches.
 To remediate WN10-00-000090, I first reviewed all active local user accounts via Computer Management and ensured that 'Password never expires' was unchecked for each one.
 
 Next, I verified that the 'Maximum password age' policy was already set to 42 days, confirming that password expiration is properly enforced.
+
+---
 
 <a id="42-confirming-wn10-00-000090-remediation"></a>
 ## 4.2	Confirming WN10-00-000090 Remediation
@@ -135,12 +146,16 @@ Short passwords are easier for attackers to crack using brute-force or dictionar
 **Real-world example:**
 Weak and short passwords have contributed to numerous breaches. In the 2019 Citrix data breach, attackers reportedly used password spraying to gain access. Enforcing longer, more complex passwords can help prevent these types of attacks, especially when paired with account lockout policies.
 
+---
+
 <a id="51-remediating-wn10-ac-000035"></a>
 ### 5.1 Remediating WN10-AC-000035
 
 <img src="https://i.imgur.com/1DK1c2J.png">
 
 I configured the Minimum password length policy via Local Group Policy Editor, setting it to 14 characters under `Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy`. This ensures all new passwords meet the minimum length requirement.
+
+---
 
 <a id="52-confirming-wn10-ac-000035-remediation"></a>
 ### 5.2	Confirming WN10-AC-000035 Remediation
@@ -156,6 +171,8 @@ After running another compliance scan, I confirmed that WN10-AC-000035 has been 
 ### 6.1 Conclusion
 
 This lab focused on hardening account and authentication settings on a Windows 10 Pro virtual machine using Tenable's vulnerability management tool. By conducting a compliance scan, I identified and remediated three key non-compliant settings: WN10-AC-000035 (minimum password length of 14 characters), WN10-00-000090 (password expiration enforcement), and WN10-CC-000280 (password prompt for Remote Desktop Services). Each remediation was successfully applied through Group Policy Editor and verified through follow-up scans, resulting in all three checks passing. The process strengthened the system's access controls, reducing the risk of unauthorised access and aligning the configuration with security best practices.
+
+---
 
 <a id="62-lessons-learned"></a>
 ### 6.2 Lessons Learned
