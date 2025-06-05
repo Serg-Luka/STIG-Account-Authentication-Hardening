@@ -50,9 +50,9 @@ The failed checks covered a range of issues, including weak password policies, u
 
 For this lab, I focused on three compliance checks related to account and authentication hardening to keep the scope manageable:
 
-•	WN10-AC-000035 – Passwords must be at least 14 characters in length.<br>
-•	WN10-00-000090 – Accounts must be configured to enforce password expiration.<br>
-•	WN10-CC-000280 – Remote Desktop Services must always prompt users for passwords upon connection.<br>
+•	**WN10-AC-000035** – Passwords must be at least 14 characters in length.<br>
+•	**WN10-00-000090** – Accounts must be configured to enforce password expiration.<br>
+•	**WN10-CC-000280** – Remote Desktop Services must always prompt users for passwords upon connection.<br>
 
 These settings are important for improving access control, and focusing on a smaller set allowed me to properly apply and test each change.
 
@@ -60,8 +60,6 @@ These settings are important for improving access control, and focusing on a sma
 ## 🔒 3.	Security Control WN10-CC-000280 Overview
 
 <img src="https://i.imgur.com/W0J7IB0.png">
-
-<img src="https://i.imgur.com/txr8712.png">
 
 **What is WN10-CC-000280?**
 It’s a security rule that says: “Remote Desktop Services must always prompt a client for passwords upon connection.”
@@ -71,6 +69,15 @@ If Remote Desktop doesn’t always prompt for a password, attackers could connec
 
 **Real-world example:**
 In some ransomware campaigns, attackers gained access to systems through Remote Desktop by exploiting saved credentials left behind on shared or previously compromised machines. By disabling automatic logon and enforcing a password prompt, organisations can add a critical layer of protection against such lateral movement.
+
+**This compliance control applies to the following key frameworks:**
+
+•	**NIST 800-53** – Authenticator management (IA-11)<br>
+•	**NIST 800-171** – Access control and authentication (03.05.01b)<br>
+•	**HIPAA** – Access controls and authentication (164.312(d), 164.306(a)(1))<br>
+•	**GDPR** – Security of processing (Article 32.1.b)<br>
+•	**DISA STIG (Windows 10)** – Credential management (WN10-CC-000280)<br>
+•	**NIST CSF (v1.1 & 2.0)** – Identity and access management (PR.AC-1, PR.AA-01)<br>
 
 ---
 
@@ -97,8 +104,6 @@ After running another compliance scan, I confirmed that WN10-CC-000280 has been 
 
 <img src="https://i.imgur.com/d1mLZN7.png">
 
-<img src="https://i.imgur.com/sVC9io0.png">
-
 **What is WN10-00-000090?**
 It’s a security rule that says: “Accounts must be configured to require password expiration.”
 
@@ -107,6 +112,16 @@ If passwords never expire, they’re more likely to be reused, discovered, or cr
 
 **Real-world example:**
 Password reuse and non-expiring credentials have played a role in many breaches. For example, during the 2012 LinkedIn breach, millions of hashed passwords were leaked. Because many users reused those credentials for years without changing them, attackers were still able to access other accounts long after the initial breach.
+
+**This compliance control applies to the following key frameworks:**
+
+•	**NIST 800-53** – Authenticator management and strength (IA-5(1))<br>
+•	**NIST 800-171** – User identification and authentication (3.5.2, 03.05.07d)<br>
+•	**ISO/IEC 27001:2022** – Access control and authentication management (A.5.16, A.5.17, A.9.4.3)<br>
+•	**HIPAA** – Access control and authentication safeguards (164.312(a)(2)(i), 164.312(d))<br>
+•	**GDPR** – Security of processing (Article 32.1.b)<br>
+•	**DISA STIG (Windows 10)** – Authentication and credential management (WN10-00-000090)<br>
+•	**NIST CSF (v1.1 & 2.0)** – Identity and access management (PR.AC-1, PR.AA-01)<br>
 
 ---
 
@@ -135,8 +150,6 @@ After running another compliance scan, I confirmed that WN10-00-000090 has been 
 
 <img src="https://i.imgur.com/ma3T8bn.png">
 
-<img src="https://i.imgur.com/I1g5Tlm.png">
-
 **What is WN10-AC-000035?**
 It’s a security rule that says: “Passwords must, at a minimum, be 14 characters long.”
 
@@ -145,6 +158,16 @@ Short passwords are easier for attackers to crack using brute-force or dictionar
 
 **Real-world example:**
 Weak and short passwords have contributed to numerous breaches. In the 2019 Citrix data breach, attackers reportedly used password spraying to gain access. Enforcing longer, more complex passwords can help prevent these types of attacks, especially when paired with account lockout policies.
+
+**This compliance control aligns with these main frameworks:**
+
+•	**NIST 800-53** – Authenticator management and security (IA-5(1))<br>
+•	**NIST 800-171** – User authentication requirements (3.5.7, 03.05.07a)<br>
+•	**ISO/IEC 27001:2022** – Access control and authentication (A.5.16, A.5.17, A.9.4.3)<br>
+•	**HIPAA** – Access controls and authentication safeguards (164.312(a)(2)(i), 164.312(d))<br>
+•	**GDPR** – Security of processing personal data (Article 32.1.b)<br>
+•	**DISA STIG (Windows 10)** – Access control and credential management (WN10-AC-000035)<br>
+•	**NIST CSF (v1.1 & 2.0)** – Identity and access management (PR.AC-1, PR.AA-01)<br>
 
 ---
 
